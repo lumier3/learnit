@@ -1,9 +1,19 @@
+<?php 
+
+  include __DIR__ . "/config/db_connect.php";
+  session_start();
+  if(!isset($_COOKIE['userId'])) {
+    header("Location:./_actions/login.php");
+    exit();
+  }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
    <?php include("templates/header.php");
    include("templates/courses.php");
    include("templates/footer.php");
+   
    ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script> 

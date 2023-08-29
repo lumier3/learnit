@@ -1,8 +1,12 @@
 <?php 
-
-    $courseId = $_GET['id'];
-
+    
+    include __DIR__ . "/config/db_connect.php";
+    $courseId = (int)$_GET['id'];
+    $result = $db->query("SELECT * FROM courses WHERE id = $courseId");
+    // Fetch and process data here
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +16,7 @@
     <title>Learn it</title>
 </head>
 <body>
-    this is courseid <?php echo $courseId; ?>    
+    this is courseid <?php echo $result->fetch_assoc()["name"]; ?>    
 
 </body>
 </html>

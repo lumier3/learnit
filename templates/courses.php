@@ -1,26 +1,8 @@
-<!---
-
-1. course name
-2. description
-3. learn more
-
----->
 
 <?php 
 
-//connect sql database
-$conn = mysqli_connect('localhost', 'lumiere' , '136300', 'learnitdb');
 
-//check connection
-if (!$conn) {
-   echo 'Error connecting to'. mysqli_connect_error();
-}
-
-// query database
-$sql = "SELECT * FROM courses";
-
-//execute query
-$result = mysqli_query($conn , $sql);
+$result = $db->query("SELECT * FROM courses");
 
 //check query
 
@@ -29,11 +11,11 @@ if (!$result) {
 }
 
 //fetch data
-$courses = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$courses = $result->fetch_all(MYSQLI_ASSOC);
 
 //close connection  
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($db);
 
 ?>
 
