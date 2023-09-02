@@ -1,3 +1,15 @@
+<?php 
+include __DIR__ . "/../config/db_connect.php";
+session_start();
+if(!isset($_COOKIE['adminId'])) {
+  header("Location:../../_actions/admin_login.php");
+  exit();
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

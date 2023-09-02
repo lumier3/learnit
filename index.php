@@ -1,11 +1,11 @@
 <?php 
 
   include __DIR__ . "/config/db_connect.php";
-  session_start();
-  if(!isset($_COOKIE['userId'])) {
-    header("Location:./_actions/login.php");
-    exit();
-  }
+  // session_start();
+  // if(!isset($_COOKIE['userId'])) {
+  //   header("Location:./_actions/login.php");
+  //   exit();
+  // }
 ?>
 
 <!DOCTYPE html>

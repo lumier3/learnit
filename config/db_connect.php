@@ -1,16 +1,16 @@
 <?php
 
-require __DIR__ . "/../vendor/autoload.php";
+//require __DIR__ . "/../vendor/autoload.php";
 // Include the Composer autoload file
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+//$dotenv->load();
 
 
 //db config
-$dbHost = $_ENV['dbHost'];
-$dbUsername = $_ENV['dbUsername'];
-$dbPassword = $_ENV['dbPassword'];
-$dbName = $_ENV['dbName'];
+$dbHost = "localhost";
+$dbUsername = "lumiere";
+$dbPassword = "136300";
+$dbName = "learnitdb";
 
 $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
