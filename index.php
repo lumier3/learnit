@@ -1,6 +1,7 @@
 <?php 
 
   include __DIR__ . "/config/db_connect.php";
+  include __DIR__. "/fileUpload/fileUpload.php";
   // session_start();
   // if(!isset($_COOKIE['userId'])) {
   //   header("Location:./_actions/login.php");
@@ -12,6 +13,8 @@
 <html lang="en">
    <?php include("templates/header.php");
    include("templates/courses.php");
+   include("templates/testimonial.php");
+   include("templates/aboutUs.php");
    include("templates/footer.php");
    
    ?>
@@ -83,6 +86,8 @@
 
    
 </script>
+
+
 
 
 </body>

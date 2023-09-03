@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 <body>
-<header class="w-full min-h-[100vh]">
+<header class="w-full min-h-[100vh]" id="header">
     <!--- nav bar and logo --->
     <?php include "navbar.php"; ?>
    <!--- nav bar and logo --->
@@ -35,12 +35,13 @@
                     We're dedicated to providing top-notch education and empowering the leaders of tomorrow.
                     Explore our programs and embark on a journey of lifelong learning.
                 </p>
-                <a href="" id="explore-button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-full text-lg md:text-xl  transition duration-300 ease-in-out hidden">
+                <a href="#courses_offer" id="explore-button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-full text-lg md:text-xl  transition duration-300 ease-in-out hidden">
                     Explore Courses
                 </a>
             </div>
         </div>
 </section>
+
 
 
 

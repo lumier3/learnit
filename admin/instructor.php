@@ -9,6 +9,10 @@
         $instructorName = $_POST['instructorName'];
     }
 
+    if(!empty($_POST['instructorEmail'])) {
+        $instructorEmail = $_POST['instructorEmail'];
+    }
+
     if(!empty($_POST['edu_background'])) {
         $edu_background = $_POST['edu_background'];
     }
@@ -22,8 +26,8 @@
         $allowTypes = array("jpg", "jpeg", "png", "gif");
         if(in_array($fileType, $allowTypes)) {
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-                    $insert = $db->query("INSERT INTO instructor(name, edu_background, about_instructor, instructor_photo) 
-                        VALUES('$instructorName', '$edu_background', '$about_instructor', '$fileName')");
+                    $insert = $db->query("INSERT INTO instructor(name, edu_background, about_instructor, instructor_photo, email) 
+                        VALUES('$instructorName', '$edu_background', '$about_instructor', '$fileName', '$instructorEmail')");
                         if ($insert) {
                             // Data inserted successfully, redirect back to the same page
                             header("Location: instructor.php");
@@ -42,9 +46,11 @@
 
             /// delete the file from the server
         if(isset($_POST['delete'])) {
-            $deleteId = mysqli_real_escape_string($db, $_POST['delete']);
-            $query = $db->query("DELETE FROM instructor WHERE id = $deleteId");
-            if($query) {
+            $deleteInstructorId = mysqli_real_escape_string($db, $_POST['delete']);
+            $deleteCoursesStudentsInstructor = $db->query("DELETE FROM courses_students_instructors WHERE instructor_id = $deleteInstructorId");
+            $deleteFromCourses = $db->query("DELETE FROM courses WHERE instructor_id = $deleteInstructorId");
+            $deleteFromInstructor = $db->query("DELETE FROM instructor WHERE id = $deleteInstructorId");
+            if($deleteCoursesStudentsInstructor && $deleteFromCourses && $deleteFromInstructor) {
                     // Query executed successfully, you can add a success message here
                 header("Location: instructor.php");
                 exit;
@@ -72,7 +78,7 @@
                 if (in_array($fileType, $allowTypes)) {
                     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
                         // Update name and image in the database
-                        $insert = $db->query("UPDATE instructor SET name = '$instructorName', edu_background = '$edu_background', instructor_photo = '$fileName' WHERE id = $id");
+                        $insert = $db->query("UPDATE instructor SET name = '$instructorName', edu_background = '$edu_background', instructor_photo = '$fileName', email ='$instructorEmail' WHERE id = $id");
                         if ($insert) {
                             header("Location: instructor.php");
                             exit; // Make sure to exit the script
@@ -90,7 +96,7 @@
                 }
             } else {
                 // Update name only, without changing the image
-                $updateName = $db->query("UPDATE instructor SET name = '$instructorName', edu_background = '$edu_background' WHERE id = $id");
+                $updateName = $db->query("UPDATE instructor SET name = '$instructorName', edu_background = '$edu_background', email ='$instructorEmail' WHERE id = $id");
                 if ($updateName) {
                     header("Location: instructor.php");
                     exit; // Make sure to exit the script

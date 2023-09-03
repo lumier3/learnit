@@ -3,6 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -21,4 +36,12 @@ header {
 
 .swiper-slide {
   background-color: rgb(239, 239, 239) !important;
+}
+
+.course_enroll {
+  background: rgb(40, 40, 40) !important;
+}
+
+.course_description::-webkit-scrollbar {
+  display: none;
 }

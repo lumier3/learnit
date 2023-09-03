@@ -41,10 +41,10 @@
 
         if (isset($_POST['edit_course'])) {
             $id = mysqli_real_escape_string($db, $_POST['edit_course']);
-            $courseName = $_POST["courseName"];
-            $description = $_POST["description"];
-            $courseLink = $_POST["courseLink"];
-            $selectedInstructorId = $_POST["selectedInstructor"];
+            $courseName = mysqli_real_escape_string($db, $_POST["courseName"]);
+            $description = mysqli_real_escape_string($db, $_POST["description"]);
+            $courseLink = mysqli_real_escape_string($db, $_POST["courseLink"]);
+            $selectedInstructorId = mysqli_real_escape_string($db, $_POST["selectedInstructor"]);
 
             
             // Check if a file was uploaded
@@ -86,8 +86,10 @@
         // delete course 
         if(isset($_POST['delete'])) {
             $deleteId = mysqli_real_escape_string($db, $_POST['delete']);
-            $query = $db->query("DELETE FROM courses WHERE id = $deleteId");
-            if($query) {
+            $deleteCoursesStudent = $db->query("DELETE FROM courses_students_instructors WHERE course_id = $deleteId");
+            $deleteCourse = $db->query("DELETE FROM courses WHERE id = $deleteId");
+
+            if($deleteCoursesStudent && $deleteCourse) {
                     // Query executed successfully, you can add a success message here
                 header("Location: courses.php");
                 exit;
