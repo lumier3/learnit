@@ -111,14 +111,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles.css">
     <?php include '../includes/cdn.php';?>
 </head>
 <body>
-    <?php include "../templates/layout.php"; ?>
-    <div class="p-4 sm:ml-64  bg-cyan-50 min-h-[100vh]">
+    <?php include "../templates/layout.php"; ?> 
+    <div class="p-4 sm:ml-64  bg-cyan-50 min-h-[100vh]"> 
         
-    <!-- Modal toggle -->
+    <!-- Modal toggle --> 
         <?php include "./components/courses/addCourse.php";?>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
@@ -133,7 +133,6 @@
                 ?>
 
             
-                
                 
                 <div class="relative max-w-sm border border-gray-200 bg-white rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 group">
                     <div class=" hidden group-hover:block absolute top-2 right-0">
@@ -152,15 +151,14 @@
                       <!-- add edit and delete -->
 
                     </div>
-                    <div class="mt-14">
-                        <img class="rounded-[50%] w-[100px] h-[100px] mx-auto object-cover" src=<?php echo $imageUrl; ?> alt="" />
+                    <div class="w-full">
+                        <img class="rounded-t-lg w-full h-44 object-cover" src=<?php echo $imageUrl; ?> alt="" />
                     </div>
-                    <div class="p-2">
-                        
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> <?php echo isset($courseRow['name']) ? $courseRow['name'] : 'No Name'; ?></h5>
-                        
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> <?php echo isset($courseRow['description']) ? $courseRow['description'] : 'No Description'; ?></p>
-                        
+                    <div class="p-2 mb-4">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> <?php echo isset($courseRow['name']) ? $courseRow['name'] : 'No Name'; ?></h5>
+                        <div class="w-full h-[90px] course_description overflow-y-scroll ">                            
+                            <p class="font-mono"> <?php echo isset($courseRow['description']) ? $courseRow['description'] : 'No Description'; ?></p>
+                        </div>
                     </div>
                 </div>
            
@@ -174,8 +172,9 @@
                         echo "0 results";
                     }
                 ?>
-            </div>  
-    </div>
+            </div> 
+
+    </div> 
     <?php include '../includes/scripts.php';?>
 </body>
 </html>

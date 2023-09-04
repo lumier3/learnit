@@ -1,5 +1,5 @@
 <div class="text-center">
-    <h1 class="text-3xl">About us</h1>
+    <h1 class="text-3xl">Contact us</h1>
 </div>
 <footer class="bg-white dark:bg-gray-900" id="contact-us">
     <div class="mx-auto w-full max-w-screen-xl">

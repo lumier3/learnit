@@ -118,7 +118,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <?php include '../includes/cdn.php';?>
     <title>Document</title>
 </head>
@@ -154,16 +154,14 @@
                         </div>
 
                     </div>
-                    <div class="mt-14">
-                        <img class="rounded-[50%] w-[100px] h-[100px] mx-auto object-cover" src=<?php echo $imageUrl; ?> alt="" />
+                    <div class="w-full pt-14 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <div class="flex flex-col items-center pb-10">
+                                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src=<?php echo $imageUrl; ?> alt="Bonnie image"/>
+                                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><?php echo $row['name']; ?></h5>
+                                <span class="text-sm text-gray-500 dark:text-gray-400"><?php echo $edu_background ?></span>
+                            </div>
                     </div>
-                    <div class="p-2">
-                        
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $row['name']; ?></h5>
-                        
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><?php echo $edu_background ?></p>
-                        
-                    </div>
+                    
                 </div>
            
 

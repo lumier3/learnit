@@ -42,6 +42,15 @@ header {
   background: rgb(40, 40, 40) !important;
 }
 
-.course_description::-webkit-scrollbar {
+.course_description,
+.dashboard_scroll {
+  /* Hide the main content scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.course_description::-webkit-scrollbar,
+.dashboard_scroll::-webkit-scrollbar {
+  /* Hide the scrollbar in Webkit browsers */
   display: none;
 }
