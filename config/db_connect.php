@@ -8,8 +8,8 @@
 
 //db config
 $dbHost = "localhost";
-$dbUsername = "lumiere";
-$dbPassword = "136300";
+$dbUsername = "yourName";
+$dbPassword = "yourPW";
 $dbName = "learnitdb";
 
 $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
